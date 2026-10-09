@@ -276,8 +276,9 @@ with tabs[0]:
             textposition="outside", cliponaxis=False,
             customdata=k.values, hovertemplate="%{y}: %{x:.0%} (%{customdata} complaints)<extra></extra>",
         ))
-        st.markdown(f"**Where complaints land in the journey**, {since_txt} "
-                    f"({', '.join([f'n = {len(staged)} complaints from {staged.review_id.nunique()} reviews'] + scope)})")
+        n_txt = (f"n = {len(staged)} complaint mentions across {staged.review_id.nunique()} reviews; "
+                 "a review can complain about more than one stage")
+        st.markdown(f"**Where complaints land in the journey**, {since_txt} ({'; '.join([n_txt] + scope)})")
         fig.update_yaxes(autorange="reversed", showgrid=False)
         fig.update_xaxes(range=[0, share.max() * 1.25], visible=False)
         st.plotly_chart(style(fig, 380), width="stretch")
