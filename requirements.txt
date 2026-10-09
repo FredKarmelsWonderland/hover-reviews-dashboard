@@ -1,0 +1,5 @@
+# Streamlit Community Cloud (dashboard only; labeling runs locally with uv). Full dev environment: `uv sync`.
+streamlit>=1.40
+pandas>=2.2
+plotly>=5.22
+pydantic>=2.7
